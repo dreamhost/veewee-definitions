@@ -79,7 +79,7 @@ system_info:
     groups: [wheel, adm, systemd-journal]
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
-  distro: fedora
+  distro: ubuntu
   paths:
     cloud_dir: /var/lib/cloud
     templates_dir: /etc/cloud/templates
