@@ -7,9 +7,9 @@ out.write(parsed)
 
 Veewee::Session.declare({
   :cpu_count => '1',
-  :memory_size=> '480',
+  :memory_size=> '2048',
   :disk_size => '10140',
-  :disk_format => 'VDI',
+  :disk_format => 'raw',
   :hostiocache => 'off',
   :os_type_id => 'RedHat6_64',
   :iso_file => "CentOS-6.5-x86_64-minimal.iso",
