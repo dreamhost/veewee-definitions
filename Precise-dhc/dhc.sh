@@ -24,12 +24,6 @@ cat >> /etc/apt/preferences.d/99dhc << EOF
 APT::Default-Release "precise";
 EOF
 
-cat >> /etc/apt/apt.conf.d/dhc << EOF
-Package: mountall
-Pin: release n=trusty
-Pin-Priority: 900
-EOF
-
 cat >> /etc/apt/sources.list.d/trusty.list << EOF
 deb http://archive.ubuntu.com/ubuntu trusty main
 EOF
