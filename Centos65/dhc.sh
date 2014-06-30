@@ -90,7 +90,11 @@ system_info:
 # vim:syntax=yaml
 EOF
 cat >> /etc/cloud/cloud.cfg.d/25_dhc.cfg << EOF
-datasource_list: [ ConfigDrive ]
+datasource_list: [ 'ConfigDrive' ]
+disable_ec2_metadata: True
+datasource:
+  ConfigDrive:
+      dsmode: local
 EOF
 cat >> /etc/cloud/cloud.cfg.d/99_cleanup.cfg << EOF
 runcmd:
