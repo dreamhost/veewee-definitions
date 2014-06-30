@@ -1,4 +1,4 @@
-/bin/echo "cloud-init cloud-init/datasources string ConfigDrive, Ec2" | /usr/bin/debconf-set-selections        
+/bin/echo "cloud-init cloud-init/datasources string ConfigDrive" | /usr/bin/debconf-set-selections        
 /usr/sbin/useradd -s /bin/bash -m dhc-user
 echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
 chmod 440 /etc/sudoers.d/dhc-user
@@ -91,7 +91,10 @@ cat >> /etc/cloud/cloud.cfg.d/15_hosts.cfg << EOF
 manage_etc_hosts: template
 EOF
 cat >> /etc/cloud/cloud.cfg.d/25_dhc.cfg << EOF
-datasource_list: [ ConfigDrive ]
+datasource_list: [ 'ConfigDrive' ]
+datasource:
+  ConfigDrive:
+      dsmode: local
 
 growpart:
   mode: auto
