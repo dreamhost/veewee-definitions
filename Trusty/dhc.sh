@@ -83,7 +83,7 @@ system_info:
   paths:
     cloud_dir: /var/lib/cloud
     templates_dir: /etc/cloud/templates
-  ssh_svcname: sshd
+  ssh_svcname: ssh
 
 # vim:syntax=yaml
 EOF
