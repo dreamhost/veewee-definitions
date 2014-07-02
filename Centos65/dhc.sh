@@ -1,4 +1,7 @@
 /usr/sbin/usermod -a -G wheel installer
+cat >> /etc/chkconfig.d/cloud-init-local << EOF
+# chkconfig: 2345 09 90
+EOF
 #/bin/yum -y update
 /bin/rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 /usr/bin/yum -y install cloud-utils-growpart cloud-init syslinux-extlinux
