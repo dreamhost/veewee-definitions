@@ -45,6 +45,7 @@ cloud_init_modules:
  - bootcmd
  - write-files
  - growpart
+ - resizefs
  - set_hostname
  - update_hostname
  - update_etc_hosts
