@@ -3,6 +3,7 @@
 echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
 chmod 440 /etc/sudoers.d/dhc-user
 /usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot
+rm /etc/network/if-up.d/ntpdate
 rm /etc/default/grub
 cat >> /etc/default/grub << EOF
 GRUB_DEFAULT=0
