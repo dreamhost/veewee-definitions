@@ -114,4 +114,4 @@ EOF
 
 ## Explicitly mounting the config drive seems to work around a bug in mountall
 mkdir /mnt/config-2
-echo 'LABEL=config-2 /mnt/config-2 defaults 0 0' >> /etc/fstab
+echo '/dev/sr0 /mnt/config-2 defaults 0 0' >> /etc/fstab
