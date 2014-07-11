@@ -1,2 +1,5 @@
 ks.cfg
 preseed.cfg
+sshkey.sh
+installer-key*
+pass.cache
