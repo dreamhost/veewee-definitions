@@ -1,18 +1,40 @@
 require 'erb'
+#require 'Time'
 ssh_user = 'installer'
-ssh_password = Array.new(24){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join
+
+now = Time.now
+if File.file?('pass.cache') and now - File.stat('pass.cache').mtime < 86400 then
+  puts('using cached password')
+  pw = File.open('pass.cache')
+  ssh_password = pw.gets
+else
+  puts('generating new password')
+  ssh_password = Array.new(24){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join
+  out = File.new('pass.cache', 'w')
+  out.write(ssh_password)
+end
+
 parsed = ERB.new(File.read("preseed.cfg.erb")).result(binding)
 out = File.new('preseed.cfg', 'w')
 out.write(parsed)
+
+if !File.file?('installer-key.pub') then
+  system "ssh-keygen -t rsa -N '' -f installer-key"
+end
+sk = File.open('installer-key.pub')
+ssh_key_contents = sk.gets
+ssh_script = ERB.new(File.read("sshkey.sh.erb")).result(binding)
+out = File.new('sshkey.sh', 'w')
+out.write(ssh_script)
 
 Veewee::Definition.declare({
   :cpu_count => '1',
   :memory_size=> '256',
   :disk_size => '10140', :disk_format => 'raw', :hostiocache => 'off',
   :os_type_id => 'Debian_64',
-  :iso_file => "debian-7.5.0-amd64-netinst.iso",
-  :iso_src => "http://cdimage.debian.org/debian-cd/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-netinst.iso",
-  :iso_md5 => "8fdb6715228ea90faba58cb84644d296",
+  :iso_file => "debian-7.4.0-amd64-netinst.iso",
+  :iso_src => "http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso",
+  :iso_md5 => "e7e9433973f082a297793c3c5010b2c5",
   :iso_download_timeout => "1000",
   :boot_wait => "10", :boot_cmd_sequence => [
      '<Esc>',
@@ -37,7 +59,7 @@ Veewee::Definition.declare({
   :ssh_login_timeout => "10000",
   :ssh_user => ssh_user,
   :ssh_password => ssh_password,
-  :ssh_key => "",
+  :ssh_key => "installer-key",
   :ssh_host_port => "7222",
   :ssh_guest_port => "22",
   :sudo_cmd => "echo '%p'|sudo -S bash '%f'",
@@ -45,6 +67,7 @@ Veewee::Definition.declare({
   :postinstall_files => [
     "base.sh",
     "dhc.sh",
+    "sshkey.sh",
     "cleanup.sh",
     "zerodisk.sh"
   ],
