@@ -3,6 +3,7 @@
 /usr/bin/apt-get update
 /usr/bin/apt-get -y install cloud-init cloud-initramfs-growroot
 /usr/bin/apt-get -y dist-upgrade
+/usr/bin/apt-get -y -t wheezy-backports install linux-image-amd64
 cat > /etc/default/grub << EOF
 # If you change this file, run 'update-grub' afterwards to update
 # /boot/grub/grub.cfg.
