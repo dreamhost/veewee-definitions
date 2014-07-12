@@ -30,7 +30,7 @@ out.write(ssh_script)
 Veewee::Definition.declare({
   :cpu_count => '1',
   :memory_size=> '256',
-  :disk_size => '10140', :disk_format => 'raw', :hostiocache => 'off',
+  :disk_size => '5000', :disk_format => 'raw', :hostiocache => 'off',
   :os_type_id => 'Debian_64',
   :iso_file => "debian-7.5.0-amd64-netinst.iso",
   :iso_src => "http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso",
