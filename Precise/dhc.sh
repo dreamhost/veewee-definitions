@@ -33,7 +33,10 @@ cat >> /etc/cloud/cloud.cfg.d/15_hosts.cfg << EOF
 manage_etc_hosts: template
 EOF
 cat >> /etc/cloud/cloud.cfg.d/25_dhc.cfg << EOF
-datasource_list: [ ConfigDrive ]
+datasource_list: [ 'ConfigDrive' ]
+datasource:
+  ConfigDrive:
+      dsmode: local
 
 growpart:
   mode: auto
@@ -49,3 +52,7 @@ runcmd:
  - [ /bin/rm, -f, /etc/cloud/cloud.cfg.d/99_cleanup.cfg]
 
 EOF
+
+## Explicitly mounting the config drive seems to work around a bug in mountall
+mkdir /mnt/config-2
+echo '/dev/sr0 /mnt/config-2 iso9660 defaults 0 0' >> /etc/fstab
