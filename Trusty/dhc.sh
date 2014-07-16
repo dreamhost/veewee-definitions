@@ -1,7 +1,7 @@
 /bin/echo "cloud-init cloud-init/datasources string ConfigDrive" | /usr/bin/debconf-set-selections        
-/usr/sbin/useradd -s /bin/bash -m dhc-user
-echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
-chmod 440 /etc/sudoers.d/dhc-user
+#/usr/sbin/useradd -s /bin/bash -m dhc-user
+#echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
+#chmod 440 /etc/sudoers.d/dhc-user
 /usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot
 rm /etc/network/if-up.d/ntpdate
 rm /etc/default/grub
@@ -77,7 +77,7 @@ system_info:
     name: dhc-user
     lock_passwd: true
     gecos: DreamCompute User
-    groups: [wheel, adm, systemd-journal]
+    groups: [adm, sudo]
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
   distro: ubuntu
