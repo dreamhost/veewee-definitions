@@ -1,6 +1,6 @@
 Veewee::Definition.declare({
   :cpu_count => '1', :memory_size=> '512',
-  :disk_size => '10140', :disk_format => 'VDI', :hostiocache => 'off',
+  :disk_size => '10140', :disk_format => 'raw', :hostiocache => 'off',
   :os_type_id => 'FreeBSD_64',
   :iso_file => "mfsbsd-se-10.0-RELEASE-amd64.iso",
   :iso_src => "http://mfsbsd.vx.sk/files/iso/10/amd64/mfsbsd-se-10.0-RELEASE-amd64.iso",
