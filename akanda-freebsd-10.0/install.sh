@@ -4,10 +4,12 @@ sleep 10
 # Enable required services
 cat >> /etc/rc.conf << EOT
 hostname="${NAME}"
-ifconfig_vtnet0="dhcp"
 sshd_enable="YES"
 EOT
 
+cat > /etc/rc.conf.local << EOT
+ifconfig_vtnet0="dhcp"
+EOT
 # Tune and boot from zfs
 cat >> /boot/loader.conf << EOT
 vm.kmem_size="200M"

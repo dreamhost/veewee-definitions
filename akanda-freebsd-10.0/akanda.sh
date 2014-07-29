@@ -102,38 +102,20 @@ EOF
     akanda
 EOF
 
-#echo "[*] Modifying the library path..."
-#cat > $WDIR/root/.cshrc << EOF
-# Workaround for missing libraries:
-#export LD_LIBRARY_PATH=/usr/local/lib
-#EOF
-#cat > $WDIR/root/.profile << EOF
-# Workaround for missing libraries:
-#export LD_LIBRARY_PATH=/usr/local/lib
-#EOF
-#mkdir -p $WDIR/etc/profile
-#cat > $WDIR/etc/profile/.cshrc << EOF
-# Workaround for missing libraries:
-#export LD_LIBRARY_PATH=/usr/local/lib
-#EOF
-#cat > $WDIR/etc/profile/.profile << EOF
-# Workaround for missing libraries:
-#export LD_LIBRARY_PATH=/usr/local/lib
-#EOF
-
 echo "[*] Using DNS ($DNS) in livecd environment..."
 echo "nameserver $DNS" > /etc/resolv.conf
 
 echo "[*] Disabling services...."
-cat >> /etc/rc.conf.local <<EOF
+cat > /etc/rc.conf.local <<EOF
 amd_enable="NO"
 sendmail_enable="NO"
 varmfs="YES"
+varsize="128"
 hostname="akanda"
 pf_enable="YES"
 sshd_enable="YES"
-## This is the default.  Leaving here in case we need to tweak.
-ipv6_activate_all_interfaces="NO"
+ipv6_activate_all_interfaces="YES"
+ipv6_enable="YES"
 EOF
 
 echo "[*] Setting default password..."
@@ -220,12 +202,7 @@ echo "Configuring pf rules for start up..."
 /etc/rc.d/sshd restart
 /usr/local/bin/gunicorn -c /etc/akanda_gunicorn_config akanda.router.api.server:app
 EOF
-#cp $HERE/etc/rc.local $WDIR/etc/rc.local
-
-#echo "[*] Entering Akanda livecd builder (chroot environment)."
-#echo "[*] Once you have finished your modifications, type \"exit\""
-
-#    chroot $WDIR
+chmod +x /etc/rc.local
 
     echo "[*] Deleting sensitive information..."
     rm -f /root/{.history,.viminfo}
