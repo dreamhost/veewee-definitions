@@ -138,6 +138,7 @@ EOF
 
 echo "[*] Setting default password..."
 echo '$6$xNaaf0/dx5zePmHg$YM.EyOe1BANRdKEz6P08nSvzxGSSqTPcyx02pgIYl9J9gX1SlnTq6H7BaO73MRXE.0.8xfmVu/IbItiYOPjW51' |  pw usermod root -H 0
+echo "root ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
 
 echo "[*] Installing additional packages..."
