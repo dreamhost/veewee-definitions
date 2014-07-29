@@ -28,13 +28,10 @@
 ARCH=$(uname -p)         # Architecture
 TZ=UTC                   # Time zones are in /usr/share/zoneinfo
 # Additional packages that should be installed on the akanda appliance
-PACKAGES="git python27-2.7.8 py27-pip wget dnsmasq bird6 py27-eventlet-0.14.0_1 py27-greenlet-0.4.2"
+PACKAGES="sudo git python27-2.7.8 py27-pip wget dnsmasq bird6 py27-eventlet-0.14.0_1 py27-greenlet-0.4.2"
 
 
-WDIR=/usr/local/akanda-livecdx            # Working directory
-CDBOOTDIR=$WDIR/$MAJ.$MIN/$ARCH        # CD Boot directory
 OUTDIR=/tmp
-HERE=`pwd`
 
 DNS=8.8.8.8            # Google DNS Server to use in live cd (change accordingly)
 
@@ -140,11 +137,8 @@ ipv6_activate_all_interfaces="NO"
 EOF
 
 echo "[*] Setting default password..."
-#cp $HERE/etc/master.passwd $WDIR/etc/master.passwd
-#cp $HERE/etc/passwd $WDIR/etc/passwd
-#cp $HERE/etc/group $WDIR/etc/group
-#cp /root/akanda-master-password $WDIR/etc
-echo '$2a$08$CD23PpFuZ91D2piAIy/FdOuaJBygVVDoGeJD33lhmauHKIhgOIAEe' | pw usermod root -H 0
+echo '$6$xNaaf0/dx5zePmHg$YM.EyOe1BANRdKEz6P08nSvzxGSSqTPcyx02pgIYl9J9gX1SlnTq6H7BaO73MRXE.0.8xfmVu/IbItiYOPjW51' |  pw usermod root -H 0
+echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
 
 echo "[*] Installing additional packages..."
 cat > /tmp/packages.sh <<EOF
