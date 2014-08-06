@@ -1,5 +1,5 @@
 # Clean up
-apt-get -y remove linux-headers-$(uname -r) build-essential
+apt-get -y remove linux-headers-$(uname -r) build-essential isc-dhcp-client nfs-common rpcbind exim4
 apt-get -y autoremove
 apt-get -y clean
 
