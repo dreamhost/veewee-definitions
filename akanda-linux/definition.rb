@@ -32,7 +32,7 @@ Veewee::Definition.declare({
   :memory_size=> '256',
   :disk_size => '5000', :disk_format => 'raw', :hostiocache => 'off',
   :os_type_id => 'Debian_64',
-  :iso_file => "debian-7.5.0-amd64-netinst.iso",
+  :iso_file => "debian-7.6.0-amd64-netinst.iso",
   :iso_src => "http://cdimage.debian.org/debian-cd/7.6.0/amd64/iso-cd/debian-7.6.0-amd64-netinst.iso",
   :iso_md5 => "8a3c2ad7fd7a9c4c7e9bcb5cae38c135",
   :iso_download_timeout => "1000",
