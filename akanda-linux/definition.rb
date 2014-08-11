@@ -69,6 +69,7 @@ Veewee::Definition.declare({
     "base.sh",
     "akanda.sh",
     "rsyslog.sh",
+    "collectd.sh",
     "cleanup.sh",
   ],
   :postinstall_timeout => "10000"
