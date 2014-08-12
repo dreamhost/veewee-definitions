@@ -2,7 +2,7 @@
 /usr/sbin/useradd -s /bin/bash -m dhc-user
 echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
 chmod 440 /etc/sudoers.d/dhc-user
-/usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot linux-image-3.11.0-20-generic
+/usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot linux-image-3.11.0-20-generic python-setuptools
 rm /etc/default/grub
 cat >> /etc/default/grub << EOF
 GRUB_DEFAULT=0
