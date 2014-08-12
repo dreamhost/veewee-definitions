@@ -14,10 +14,12 @@ mkdir /etc/udev/rules.d/70-persistent-net.rules
 rm -rf /dev/.udev/
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
 
+# no more postinstall scipts after this
+userdel -f -r installer
+rm /etc/sudoers.d/installer
+
 # Zero out the free space to save space in the final image:
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 
-# no more postinstall scipts after this
-userdel -f -r installer
-rm /etc/sudoers.d/installer
+

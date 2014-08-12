@@ -68,6 +68,8 @@ Veewee::Definition.declare({
     "sshkey.sh",
     "base.sh",
     "akanda.sh",
+    "rsyslog.sh",
+    "collectd.sh",
     "cleanup.sh",
   ],
   :postinstall_timeout => "10000"
