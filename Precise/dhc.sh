@@ -20,13 +20,6 @@ EOF
 
 /usr/sbin/update-grub
 cp /etc/cloud/templates/hosts.debian.tmpl /etc/cloud/templates/hosts.ubuntu.tmpl
-cat >> /etc/apt/preferences.d/99dhc << EOF
-APT::Default-Release "precise";
-EOF
-
-cat >> /etc/apt/sources.list.d/trusty.list << EOF
-deb http://archive.ubuntu.com/ubuntu trusty main
-EOF
 
 /bin/sed -i 's/^user: ubuntu/user: dhc-user/g' /etc/cloud/cloud.cfg
 cat >> /etc/cloud/cloud.cfg.d/15_hosts.cfg << EOF
