@@ -37,6 +37,15 @@ resize_rootfs_tmp: /dev
 ssh_deletekeys:   0
 ssh_genkeytypes:  ~
 syslog_fix_perms: ~
+manage-resolv-conf: true
+
+resolv_conf:
+  nameservers: ['8.8.4.4', '8.8.8.8']
+  domain: nodes.dreamcompute.com
+  options:
+    rotate: true
+    timeout: 1
+
 
 cloud_init_modules:
  - migrator
