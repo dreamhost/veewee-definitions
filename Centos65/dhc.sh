@@ -39,13 +39,6 @@ ssh_genkeytypes:  ~
 syslog_fix_perms: ~
 manage-resolv-conf: true
 
-resolv_conf:
-  nameservers: ['8.8.4.4', '8.8.8.8']
-  domain: nodes.dreamcompute.com
-  options:
-    rotate: true
-    timeout: 1
-
 
 cloud_init_modules:
  - migrator
@@ -56,6 +49,7 @@ cloud_init_modules:
  - set_hostname
  - update_hostname
  - update_etc_hosts
+ - resolv_conf
  - rsyslog
  - users-groups
  - ssh
@@ -84,6 +78,14 @@ cloud_final_modules:
  - keys-to-console
  - phone-home
  - final-message
+
+resolv_conf:
+  nameservers: ['8.8.4.4', '8.8.8.8']
+  domain: nodes.dreamcompute.com
+  options:
+    rotate: true
+    timeout: 1
+
 
 system_info:
   default_user:
