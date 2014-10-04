@@ -37,7 +37,7 @@ resize_rootfs_tmp: /dev
 ssh_deletekeys:   0
 ssh_genkeytypes:  ~
 syslog_fix_perms: ~
-manage-resolv-conf: true
+manage_resolv_conf: true
 
 
 cloud_init_modules:
