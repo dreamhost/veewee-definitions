@@ -4,7 +4,7 @@ cat >> /etc/chkconfig.d/cloud-init-local << EOF
 EOF
 #/bin/yum -y update
 /bin/rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-/usr/bin/yum -y install cloud-utils-growpart cloud-init syslinux-extlinux
+/usr/bin/yum -y install cloud-utils-growpart cloud-init syslinux-extlinux dracut-modules-growroot
 /usr/bin/yum -y erase firewalld NetworkManager
 /bin/sed -i 's/timeout 5/timeout 1/' /etc/extlinux.conf
 rm /boot/grub/grub.conf
