@@ -42,7 +42,9 @@ Veewee::Definition.declare({
     "base.sh",
 #    "vagrant.sh",
     "dhc.sh",
+    "_setup_firstboot.sh",
     "_gitlab.sh",
+    "_owncloud.sh",
     "cleanup.sh",
     "zerodisk.sh"
   ],
