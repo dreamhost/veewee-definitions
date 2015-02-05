@@ -45,6 +45,11 @@ Veewee::Definition.declare({
     "_setup_firstboot.sh",
     "_gitlab.sh",
     "_owncloud.sh",
+    "_docker.sh",
+    "_jekyll.sh",
+    "_nodejs.sh",
+    "_elk.sh",
+    "_openvpn.sh",
     "cleanup.sh",
     "zerodisk.sh"
   ],
