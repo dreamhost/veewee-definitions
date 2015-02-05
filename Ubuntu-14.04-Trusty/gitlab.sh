@@ -13,12 +13,11 @@ gitlab-ctl reconfigure
 # on first boot for each app install
 rm /etc/gitlab/gitlab-secrets.json
 
-
-cat > /tmp/first-boot.sh << EOF
+cat > /etc/rc.first-boot << EOF
 #!/bin/bash
 #
 #
 gitlab-ctl reconfigure
 EOF
 
-chmod 755 /tmp/first-boot.sh
+chmod 755 /etc/rc.first-boot

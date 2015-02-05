@@ -6,9 +6,9 @@ cat > /etc/rc.local << EOF
 # custom rc.local
 #
 
-if [ -f /tmp/first-boot.sh ];
+if [ -f /etc/rc.first-boot ];
 then
-        /tmp/first-boot.sh && rm /tmp/first-boot.sh
+        /etc/rc.first-boot && rm /etc/rc.first-boot
 fi
 exit 0
 EOF
