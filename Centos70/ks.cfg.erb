@@ -1,0 +1,36 @@
+install
+cdrom
+lang en_US.UTF-8
+keyboard us
+network --bootproto=dhcp
+rootpw --iscrypted $1$damlkd,f$UC/u5pUts5QiU3ow.CSso/
+firewall --disabled
+authconfig --enableshadow --passalgo=sha512
+selinux --disabled
+timezone UTC
+bootloader --location=mbr
+
+text
+skipx
+zerombr
+
+clearpart --all --initlabel
+partition / --size 500 --grow --fstype=ext4
+
+auth  --useshadow  --enablemd5
+firstboot --disabled
+reboot
+
+%packages --nobase
+@core
+%end
+
+%post
+/usr/bin/yum -y install sudo
+/usr/sbin/groupadd <%= ssh_user %>
+/usr/sbin/useradd <%= ssh_user %> -g <%= ssh_user %> -G wheel
+echo "<%= ssh_password %>"|passwd --stdin <%= ssh_user %>
+echo "<%= ssh_user %>        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/dhc
+chmod 0440 /etc/sudoers.d/dhc
+%end
+
