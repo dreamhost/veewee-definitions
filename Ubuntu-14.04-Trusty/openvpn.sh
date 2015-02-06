@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-sudo apt-get install openvpn easy-rsa openssl ipcalc
+DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn easy-rsa openssl ipcalc
 mkdir /etc/openvpn/easy-rsa && mkdir /etc/openvpn/easy-rsa/keys
 cp -r /usr/share/easy-rsa/* /etc/openvpn/easy-rsa/
 
