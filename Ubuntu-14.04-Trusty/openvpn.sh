@@ -29,8 +29,7 @@ dh /etc/openvpn/dh1024.pem
 EOF
 
 
-# POST INSALL SHIT
-cat > /etc/rc.first-boot << EOF
+cat > /etc/rc.first-boot << 'EOF'
 #!/bin/bash
 EASY_RSA="/etc/openvpn/easy-rsa"
 cd $EASY_RSA
