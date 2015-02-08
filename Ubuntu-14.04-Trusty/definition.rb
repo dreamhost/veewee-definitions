@@ -47,6 +47,7 @@ Veewee::Definition.declare({
     "_owncloud.sh",
     "_docker.sh",
     "_jekyll.sh",
+    "_jenkins.sh",
     "_nodejs.sh",
     "_elk.sh",
     "_openvpn.sh",
