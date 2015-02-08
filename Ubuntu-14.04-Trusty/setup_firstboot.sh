@@ -8,6 +8,7 @@ cat > /etc/rc.local << EOF
 
 if [ -f /etc/rc.first-boot ];
 then
+        chmod 755 /etc/rc.first-boot
         /etc/rc.first-boot && rm /etc/rc.first-boot
 fi
 exit 0
