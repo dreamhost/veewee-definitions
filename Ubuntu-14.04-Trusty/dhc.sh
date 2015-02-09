@@ -45,6 +45,9 @@ cloud_init_modules:
  - update_etc_hosts
  - rsyslog
  - users-groups
+ - scripts-per-once
+ - scripts-per-boot
+ - scripts-per-instance
  - ssh
 
 cloud_config_modules:
