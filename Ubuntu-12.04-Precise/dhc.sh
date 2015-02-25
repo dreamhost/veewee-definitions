@@ -1,9 +1,8 @@
-/bin/echo "cloud-init cloud-init/datasources string ConfigDrive" | /usr/bin/debconf-set-selections        
+/bin/echo "cloud-init cloud-init/datasources string ConfigDrive, Ec2" | /usr/bin/debconf-set-selections        
 /usr/sbin/useradd -s /bin/bash -m dhc-user
 echo "dhc-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/dhc-user
 chmod 440 /etc/sudoers.d/dhc-user
-/usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot python-setuptools
-rm /etc/network/if-up.d/ntpdate
+/usr/bin/apt-get -y install cloud-init cloud-initramfs-rescuevol cloud-initramfs-growroot linux-image-3.11.0-20-generic python-setuptools
 rm /etc/default/grub
 cat >> /etc/default/grub << EOF
 GRUB_DEFAULT=0
@@ -21,76 +20,8 @@ EOF
 
 /usr/sbin/update-grub
 cp /etc/cloud/templates/hosts.debian.tmpl /etc/cloud/templates/hosts.ubuntu.tmpl
-cat > /etc/cloud/cloud.cfg << EOF
-users:
- - default
-disable_root: 1
-ssh_pwauth:   0
 
-locale_configfile: /etc/sysconfig/i18n
-mount_default_fields: [~, ~, 'auto', 'defaults,nofail', '0', '2']
-resize_rootfs_tmp: /dev
-ssh_deletekeys:   0
-ssh_genkeytypes:  ~
-syslog_fix_perms: ~
-
-cloud_init_modules:
- - migrator
- - bootcmd
- - write-files
- - growpart
- - resizefs
- - set_hostname
- - update_hostname
- - update_etc_hosts
- - rsyslog
- - users-groups
- - scripts-per-once
- - scripts-per-boot
- - scripts-per-instance
- - ssh
-
-cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
-
-cloud_final_modules:
- - rightscale_userdata
- - scripts-per-once
- - scripts-per-boot
- - scripts-per-instance
- - scripts-user
- - ssh-authkey-fingerprints
- - keys-to-console
- - phone-home
- - final-message
-
-system_info:
-  default_user:
-    name: dhc-user
-    lock_passwd: true
-    gecos: DreamCompute User
-    groups: [adm, sudo]
-    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
-    shell: /bin/bash
-  distro: ubuntu
-  paths:
-    cloud_dir: /var/lib/cloud
-    templates_dir: /etc/cloud/templates
-  ssh_svcname: ssh
-
-# vim:syntax=yaml
-EOF
+/bin/sed -i 's/^user: ubuntu/user: dhc-user/g' /etc/cloud/cloud.cfg
 cat >> /etc/cloud/cloud.cfg.d/15_hosts.cfg << EOF
 manage_etc_hosts: template
 EOF
