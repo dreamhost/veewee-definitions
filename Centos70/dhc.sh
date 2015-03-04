@@ -1,5 +1,5 @@
 /usr/sbin/usermod -a -G wheel installer
-/usr/sbin/usermod -L root
+/bin/passwd -d root
 cat >> /etc/chkconfig.d/cloud-init-local << EOF
 # chkconfig: 2345 09 90
 EOF
