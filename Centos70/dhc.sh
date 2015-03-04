@@ -102,7 +102,7 @@ system_info:
   paths:
     cloud_dir: /var/lib/cloud
     templates_dir: /etc/cloud/templates
-  ssh_svcname: openssh-daemon
+  ssh_svcname: sshd
 
 # vim:syntax=yaml
 EOF
