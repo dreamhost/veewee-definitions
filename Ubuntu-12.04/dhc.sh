@@ -54,4 +54,4 @@ EOF
 
 ## Explicitly mounting the config drive seems to work around a bug in mountall
 mkdir /mnt/config-2
-echo '/dev/sr0 /mnt/config-2 iso9660 defaults 0 0' >> /etc/fstab
+echo '/dev/sr0 /mnt/config-2 iso9660 defaults,ro 0 0' >> /etc/fstab
