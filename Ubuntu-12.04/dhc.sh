@@ -26,7 +26,7 @@ cat >> /etc/cloud/cloud.cfg.d/15_hosts.cfg << EOF
 manage_etc_hosts: template
 EOF
 cat >> /etc/cloud/cloud.cfg.d/25_dhc.cfg << EOF
-datasource_list: [ 'ConfigDrive' ]
+datasource_list: [ 'ConfigDrive', 'Ec2' ]
 datasource:
   ConfigDrive:
       dsmode: local
