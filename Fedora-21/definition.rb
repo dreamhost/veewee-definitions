@@ -15,7 +15,7 @@ Veewee::Session.declare({
   :hwvirtext => 'on',
   :os_type_id => 'Fedora_64',
   :iso_file => "Fedora-Server-DVD-x86_64-21.iso",
-  :iso_src => "http://fedora.mirror.lstn.net/releases/21/Server/x86_64/iso/Fedora-Server-DVD-x86_64-21.iso",
+  :iso_src => "http://download.fedoraproject.org/pub/fedora/linux/releases/21/Server/x86_64/iso/Fedora-Server-DVD-x86_64-21.iso",
   :iso_sha256 => "a6a2e83bb409d6b8ee3072ad07faac0a54d79c9ecbe3a40af91b773e2d843d8e",
   :iso_download_timeout => 1000,
   :boot_wait => "10",
