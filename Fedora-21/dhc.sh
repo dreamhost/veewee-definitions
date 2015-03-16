@@ -1,4 +1,5 @@
 /usr/sbin/usermod -a -G wheel installer
+/bin/passwd -d root
 #/bin/yum -y update
 /bin/yum -y install cloud-utils-growpart cloud-init
 /bin/yum -y erase firewalld NetworkManager
@@ -95,3 +96,4 @@ runcmd:
  - [ /usr/sbin/userdel, -r, installer ]
  - [ /bin/rm, -f, /etc/cloud/cloud.cfg.d/99_cleanup.cfg]
 EOF
+/bin/rm /etc/cloud/cloud.cfg.d/05_logging.cfg
