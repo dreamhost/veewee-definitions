@@ -96,3 +96,4 @@ runcmd:
  - [ /usr/sbin/userdel, -r, installer ]
  - [ /bin/rm, -f, /etc/cloud/cloud.cfg.d/99_cleanup.cfg]
 EOF
+/bin/rm /etc/cloud/cloud.cfg.d/05_logging.cfg
