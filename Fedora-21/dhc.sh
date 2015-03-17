@@ -165,7 +165,6 @@ log_cfgs:
 output: {all: '| tee -a /var/log/cloud-init-output.log'}
 EOF
 cat > /usr/lib/systemd/system/cloud-init.service << EOF
-[dhc-user@fedora21 ~]$ cat /etc/systemd/system/multi-user.target.wants/cloud-init.service
 [Unit]
 Description=Initial cloud-init job (metadata service crawler)
 After=local-fs.target network.target cloud-init-local.service
