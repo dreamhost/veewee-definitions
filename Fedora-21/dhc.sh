@@ -164,3 +164,24 @@ log_cfgs:
 # there without needing to look on the console.
 output: {all: '| tee -a /var/log/cloud-init-output.log'}
 EOF
+cat > /etc/systemd/system/multi-user.target.wants/cloud-init.service << EOF
+[dhc-user@fedora21 ~]$ cat /etc/systemd/system/multi-user.target.wants/cloud-init.service
+[Unit]
+Description=Initial cloud-init job (metadata service crawler)
+After=local-fs.target network.target cloud-init-local.service
+Requires=network.target
+Wants=local-fs.target cloud-init-local.service
+Before=plymouth-quit.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/cloud-init init
+RemainAfterExit=yes
+TimeoutSec=0
+
+# Output needs to appear in instance console output
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+EOF
