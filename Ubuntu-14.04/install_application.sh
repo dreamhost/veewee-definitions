@@ -19,11 +19,10 @@ log_level :info
 verbose_logging    true
 EOF
 
-git clone $COOKBOOK_REPO /tmp/chef/cookbooks/dhcapps
-(cd /tmp/chef/cookbooks/dhcapps && berks install)
+git clone $COOKBOOK_REPO /tmp/chef/cookbooks/dhcapps  || exit 1
+(cd /tmp/chef/cookbooks/dhcapps && berks install || exit 1)
 
-# print environment
-chef-solo -c /tmp/chef/solo.rb -o $COOKBOOK_RUNLIST
+chef-solo -c /tmp/chef/solo.rb -o $COOKBOOK_RUNLIST || exit 1
 
 # remove chef
 apt-get -y remove chefdk
