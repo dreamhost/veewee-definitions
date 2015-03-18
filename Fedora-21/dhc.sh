@@ -184,3 +184,23 @@ StandardOutput=journal+console
 [Install]
 WantedBy=multi-user.target
 EOF
+cat > /usr/lib/systemd/system/cloud-final.service << EOF
+[Unit]
+Description=Execute cloud user/final scripts
+After=network.target syslog.target cloud-config.service rc-local.service
+Requires=cloud-config.target
+Wants=network.target
+Before=plymouth-quit.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/cloud-init modules --mode=final
+RemainAfterExit=yes
+TimeoutSec=0
+
+# Output needs to appear in instance console output
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+EOF
