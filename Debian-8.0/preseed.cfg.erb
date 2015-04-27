@@ -36,12 +36,6 @@ d-i netcfg/choose_interface select auto
 #d-i netcfg/get_gateway string 192.168.1.1
 #d-i netcfg/confirm_static boolean true
 
-# Any hostname and domain names assigned from dhcp take precedence over
-# values set here. However, setting the values still prevents the questions
-# from being shown, even if values come from dhcp.
-#d-i netcfg/get_hostname string vagrant
-d-i netcfg/get_domain string vagrantup.com
-
 # Disable that annoying WEP key dialog.
 d-i netcfg/wireless_wep string
 # The wacky dhcp hostname that some ISPs use as a password of sorts.
