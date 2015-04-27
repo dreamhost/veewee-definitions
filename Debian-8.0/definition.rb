@@ -45,7 +45,6 @@ Veewee::Definition.declare({
      'locale=en_US ',
      'kbd-chooser/method=us ',
      'netcfg/get_hostname=%NAME% ',
-     'netcfg/get_domain=vagrantup.com ',
      'fb=false ',
      'debconf/frontend=noninteractive ',
      'console-setup/ask_detect=false ',

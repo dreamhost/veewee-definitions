@@ -4,9 +4,6 @@ APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive apt-get -y install 
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive apt-get -y install zlib1g-dev libssl-dev libreadline-gplv2-dev
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive apt-get -y install curl unzip
 
-# Set up sudo
-echo 'installer ALL=NOPASSWD:ALL' > /etc/sudoers.d/vagrant
-
 # Tweak sshd to prevent DNS resolution (speed up logins)
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 
