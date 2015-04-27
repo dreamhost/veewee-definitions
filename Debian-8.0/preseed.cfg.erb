@@ -253,6 +253,12 @@ d-i grub-installer/only_debian boolean true
 # OS, which is less safe as it might not be able to boot that other OS.
 d-i grub-installer/with_other_os boolean true
 
+# Due notably to potential USB sticks, the location of the MBR can not be
+# determined safely in general, so this needs to be specified:
+#d-i grub-installer/bootdev  string /dev/sda
+# To install to the first device (assuming it is not a USB stick):
+d-i grub-installer/bootdev  string default
+
 # Alternatively, if you want to install to a location other than the mbr,
 # uncomment and edit these lines:
 #d-i grub-installer/only_debian boolean false
