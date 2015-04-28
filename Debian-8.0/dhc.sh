@@ -1,6 +1,6 @@
 /bin/echo "cloud-init cloud-init/datasources string ConfigDrive" | /usr/bin/debconf-set-selections        
 /bin/echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/wheezy_backports.list
-/bin/passwd -d root
+/usr/bin/passwd -d root
 /usr/bin/apt-get update
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y install cloud-init cloud-initramfs-growroot
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y dist-upgrade
