@@ -13,9 +13,9 @@ Veewee::Definition.declare({
   :disk_format => 'raw',
   :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
-  :iso_file => "ubuntu-14.04-server-amd64.iso",
-  :iso_src => "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
-  :iso_md5 => '01545fa976c8367b4f0d59169ac4866c',
+  :iso_file => "ubuntu-14.04.2-server-amd64.iso",
+  :iso_src => "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
+  :iso_md5 => '83aabd8dcf1e8f469f3c72fff2375195',
   :iso_download_timeout => "1000",
   :boot_wait => "10",
   :boot_cmd_sequence => [
@@ -42,7 +42,7 @@ Veewee::Definition.declare({
     "base.sh",
 #    "vagrant.sh",
     "dhc.sh",
-    "_install_application.sh",
+#    "_install_application.sh",
     "cleanup.sh",
     "zerodisk.sh"
   ],
