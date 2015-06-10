@@ -110,7 +110,7 @@ EOF
 cat >> /etc/cloud/cloud.cfg.d/99_cleanup.cfg << EOF
 
 runcmd:
- - [ /bin/sed, -i, 's/\/tmp\/.*. vfat .*./d', /etc/mtab ]
+ - [ /bin/sed, -i, '/\/tmp\/.*. vfat .*./d', /etc/mtab ]
  - [ /usr/sbin/userdel, -r, installer ]
  - [ /bin/rm, -f, /etc/cloud/cloud.cfg.d/99_cleanup.cfg]
 
