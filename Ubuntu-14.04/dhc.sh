@@ -106,9 +106,6 @@ growpart:
 
 resize_rootfs: True
 
-bootcmd:
- - [ cloud-init-per, once, wipemtab, cat, /proc/mounts, >, /etc/mtab ]
-
 EOF
 cat >> /etc/cloud/cloud.cfg.d/99_cleanup.cfg << EOF
 
