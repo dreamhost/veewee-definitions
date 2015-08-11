@@ -12,9 +12,9 @@ Veewee::Session.declare({
   :disk_format => 'raw',
   :hostiocache => 'off',
   :os_type_id => 'Centos_64',
-  :iso_file => "CentOS-7.0-1406-x86_64-Minimal.iso",
-  :iso_src => "http://ftp.osuosl.org/pub/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-Minimal.iso",
-  :iso_md5 => "e3afe3f1121d69c40cc23f0bafa05e5d",
+  :iso_file => "CentOS-7-x86_64-Minimal-1503-01.iso",
+  :iso_src => "http://lug.mtu.edu/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
+  :iso_md5 => "d07ab3e615c66a8b2e9a50f4852e6a77",
   :iso_download_timeout => 1000,
   :boot_wait => "10",
   :boot_cmd_sequence => [

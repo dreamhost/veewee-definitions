@@ -4,7 +4,6 @@ cat >> /etc/chkconfig.d/cloud-init-local << EOF
 # chkconfig: 2345 09 90
 EOF
 #/bin/yum -y update
-/bin/rpm -Uvh http://linux.mirrors.es.net/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 /usr/bin/yum -y install cloud-utils-growpart cloud-init syslinux-extlinux dracut-tools
 /usr/bin/yum -y erase firewalld NetworkManager
 /sbin/dracut --force
