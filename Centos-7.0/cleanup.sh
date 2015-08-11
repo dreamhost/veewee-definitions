@@ -1,6 +1,6 @@
 yum -y erase gtk2 libX11 hicolor-icon-theme avahi bitstream-vera-fonts
 yum -y clean all
-rm -rf /etc/yum.repos.d/{puppetlabs,epel}.repo
+rm -rf /etc/yum.repos.d/puppetlabs.repo
 rm -rf VBoxGuestAdditions_*.iso
 
 #cleanup yum fastest mirror cache
