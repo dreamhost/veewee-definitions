@@ -10,7 +10,8 @@ enabled=1
 gpgcheck=0
 EOM
 
-yum -y upgrade
+# don't upgrade, 'cause that takes us past 6.5
+#yum -y upgrade
 
 yum -y install gcc make gcc-c++ kernel-devel-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils
 
