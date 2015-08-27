@@ -1,10 +1,10 @@
 /bin/echo "cloud-init cloud-init/datasources string ConfigDrive" | /usr/bin/debconf-set-selections        
-/bin/echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/wheezy_backports.list
+/bin/echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie_backports.list
 /usr/bin/passwd -d root
 /usr/bin/apt-get update
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y install cloud-init cloud-initramfs-growroot
 APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y dist-upgrade
-APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -t wheezy-backports install linux-image-amd64
+APT_LISTCHANGES_FRONTEND=none DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -t jessie-backports install linux-image-amd64
 cat > /etc/default/grub << EOF
 # If you change this file, run 'update-grub' afterwards to update
 # /boot/grub/grub.cfg.
