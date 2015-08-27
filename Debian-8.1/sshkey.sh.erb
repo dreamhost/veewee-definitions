@@ -1,0 +1,7 @@
+mkdir ~<%= ssh_user %>/.ssh
+chmod 700 ~<%= ssh_user %>/.ssh
+cat >> <%= ssh_user %>_authorized_keys << EOF
+<%= ssh_key_contents %>
+EOF
+mv <%= ssh_user %>_authorized_keys ~<%= ssh_user %>/.ssh/authorized_keys
+chown -R <%= ssh_user %>.<%= ssh_user %> ~<%= ssh_user %>/.ssh
