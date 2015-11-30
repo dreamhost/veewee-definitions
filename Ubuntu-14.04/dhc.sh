@@ -41,8 +41,6 @@ cloud_init_modules:
  - growpart
  - resizefs
  - set_hostname
- - update_hostname
- - update_etc_hosts
  - rsyslog
  - users-groups
  - scripts-per-once
