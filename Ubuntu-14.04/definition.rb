@@ -14,8 +14,8 @@ Veewee::Definition.declare({
   :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
   :iso_file => "ubuntu-14.04.2-server-amd64.iso",
-  :iso_src => "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
-  :iso_md5 => '83aabd8dcf1e8f469f3c72fff2375195',
+  :iso_src => "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
+  :iso_md5 => '9e5fecc94b3925bededed0fdca1bd417',
   :iso_download_timeout => "1000",
   :boot_wait => "10",
   :boot_cmd_sequence => [
