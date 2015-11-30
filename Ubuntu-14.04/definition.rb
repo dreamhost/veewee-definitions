@@ -13,7 +13,7 @@ Veewee::Definition.declare({
   :disk_format => 'raw',
   :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
-  :iso_file => "ubuntu-14.04.2-server-amd64.iso",
+  :iso_file => "ubuntu-14.04.3-server-amd64.iso",
   :iso_src => "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
   :iso_md5 => '9e5fecc94b3925bededed0fdca1bd417',
   :iso_download_timeout => "1000",
