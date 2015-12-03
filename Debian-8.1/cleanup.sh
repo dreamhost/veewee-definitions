@@ -16,3 +16,7 @@ rm /lib/udev/rules.d/75-persistent-net-generator.rules
 
 echo "Adding a 2 sec delay to the interface up, to make the dhclient happy"
 echo "pre-up sleep 2" >> /etc/network/interfaces
+
+# remove auto-created /etc/hosts entry
+echo "cleaning out /etc/hosts entries"
+sed -i 's/127.0.1.1.*//' /etc/hosts
