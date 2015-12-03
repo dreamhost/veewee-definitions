@@ -12,11 +12,13 @@ else
   ssh_password = Array.new(24){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join
   out = File.new('pass.cache', 'w')
   out.write(ssh_password)
+  out.close
 end
 
 parsed = ERB.new(File.read("preseed.cfg.erb")).result(binding)
 out = File.new('preseed.cfg', 'w')
 out.write(parsed)
+out.close
 
 if !File.file?('installer-key.pub') then
   system "ssh-keygen -t rsa -N '' -f installer-key"
@@ -26,6 +28,7 @@ ssh_key_contents = sk.gets
 ssh_script = ERB.new(File.read("sshkey.sh.erb")).result(binding)
 out = File.new('sshkey.sh', 'w')
 out.write(ssh_script)
+out.close
 
 Veewee::Definition.declare({
   :cpu_count => '1',

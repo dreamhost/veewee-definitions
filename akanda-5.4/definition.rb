@@ -10,6 +10,7 @@ if File.file?('router.key')
     ssh_key = File.open('router.key').read().chomp!
     parsed = ERB.new(File.read("key.sh.erb")).result(binding)
     key_file.write(parsed)
+    key_file.close
 end
 
 Veewee::Session.declare({
