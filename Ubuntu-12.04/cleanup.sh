@@ -3,6 +3,10 @@
 apt-get -y remove linux-headers-$(uname -r) build-essential
 apt-get -y autoremove
 
+# remove auto-created /etc/hosts entry
+echo "cleaning out /etc/hosts entries"
+sed -i 's/127.0.1.1.*//' /etc/hosts
+
 #Clean up tmp
 rm -rf /tmp/*
 
