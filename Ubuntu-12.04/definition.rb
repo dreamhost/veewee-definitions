@@ -4,6 +4,7 @@ ssh_password = Array.new(24){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join
 parsed = ERB.new(File.read("preseed.cfg.erb")).result(binding)
 out = File.new('preseed.cfg', 'w')
 out.write(parsed)
+out.close
 
 
 Veewee::Definition.declare({

@@ -4,6 +4,7 @@ ssh_password = Array.new(24){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join
 parsed = ERB.new(File.read("ks.cfg.erb")).result(binding)
 out = File.new('ks.cfg', 'w')
 out.write(parsed)
+out.close
 
 Veewee::Session.declare({
   :cpu_count => '1',
