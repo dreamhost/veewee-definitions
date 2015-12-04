@@ -13,9 +13,9 @@ Veewee::Session.declare({
   :disk_format => 'raw',
   :hostiocache => 'off',
   :os_type_id => 'RedHat6_64',
-  :iso_file => "CentOS-6.6-x86_64-minimal.iso",
-  :iso_src => "http://ftp.osuosl.org/pub/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso",
-  :iso_md5 => "eb3c8be6ab668e6d83a118323a789e6c",
+  :iso_file => "CentOS-6.7-x86_64-minimal.iso",
+  :iso_src => "http://repos.mia.quadranet.com/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-minimal.iso",
+  :iso_md5 => "9381a24b8bee2fed0c26896141a64b69",
   :iso_download_timeout => 1000,
   :boot_wait => "10",
   :boot_cmd_sequence => [
