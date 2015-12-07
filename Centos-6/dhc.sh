@@ -20,10 +20,10 @@ splashimage=(hd0,0)/boot/grub/splash.xpm.gz
 serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
 terminal --timeout=5 serial console
 hiddenmenu
-title CentOS (2.6.32-504.el6.x86_64)
+title CentOS (2.6.32-573.8.1.el6.x86_64)
         root (hd0,0)
-        kernel /boot/vmlinuz-2.6.32-504.el6.x86_64 ro root=/dev/vda1 rd_NO_LUKS console=tty0 console=ttyS0,115200n8 LANG=en_US.UTF-8 rd_NO_MD rd_NO_LVM SYSFONT=latarcyrheb-sun16 crashkernel=auto KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM 
-        initrd /boot/initramfs-2.6.32-504.el6.x86_64.img
+        kernel /boot/vmlinuz-2.6.32-573.8.1.el6.x86_64 ro root=/dev/vda1 rd_NO_LUKS console=tty0 console=ttyS0,115200n8 LANG=en_US.UTF-8 rd_NO_MD rd_NO_LVM SYSFONT=latarcyrheb-sun16 crashkernel=auto KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM
+        initrd /boot/initramfs-2.6.32-573.8.1.el6.x86_64.img
 EOF
 
 #/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
