@@ -41,8 +41,7 @@ Veewee::Session.declare({
 #    "virtualbox.sh",
     #"vmfusion.sh",
     "cleanup.sh",
-    "zerodisk.sh",
-    "reboot.sh" # required to get growpart to work
+    "zerodisk.sh"
   ],
   :postinstall_timeout => 10000
 })
