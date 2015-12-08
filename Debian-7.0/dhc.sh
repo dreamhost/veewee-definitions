@@ -131,3 +131,4 @@ runcmd:
  - [ /bin/rm, -f, /etc/cloud/cloud.cfg.d/99_cleanup.cfg]
 
 EOF
+sed -i 's/) ALL/) NOPASSWD:ALL/g' /etc/sudoers
