@@ -3,7 +3,7 @@
 #/bin/yum -y update
 /bin/dnf -y install cloud-utils-growpart cloud-init
 /bin/dnf -y erase firewalld NetworkManager
-/bin/sed -i 's/timeout 5/timeout 1/' /etc/extlinux.conf
+/usr/bin/systemctl enable cloud-init.service
 #rm /etc/default/grub
 #echo >> /etc/default/grub << EOF
 #GRUB_TIMEOUT=2
