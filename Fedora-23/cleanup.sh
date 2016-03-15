@@ -12,3 +12,6 @@ rm /root/anaconda-ks.cfg
 # remove auto-created /etc/hosts entry
 echo "cleaning out /etc/hosts entries"
 sed -i 's/127.0.1.1.*//' /etc/hosts
+
+# remove the eth0 file, otherwise cloudinit fails to properly setup eth0
+rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
