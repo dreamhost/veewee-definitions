@@ -90,6 +90,13 @@ cloud_final_modules:
  - final-message
  - power-state-change
 
+resolv_conf:
+  nameservers: ['8.8.4.4', '8.8.8.8']
+  domain: nodes.dreamcompute.com
+  options:
+    rotate: true
+    timeout: 1
+
 # System and/or distro specific settings
 # (not accessible to handlers/transforms)
 system_info:
