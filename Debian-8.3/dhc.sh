@@ -16,6 +16,13 @@ GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8"
 GRUB_CMDLINE_LINUX="debian-installer=en_US"
 EOF
 /usr/sbin/update-grub
+
+cat > /etc/resolv.conf << EOF
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+search nodes.dreamcompute.net
+EOF
+
 cat > /etc/cloud/cloud.cfg << EOF
 # The top level settings are used as module
 # and system configuration.
