@@ -17,7 +17,7 @@ GRUB_CMDLINE_LINUX="debian-installer=en_US"
 EOF
 /usr/sbin/update-grub
 
-cat > /etc/resolvconf/resolv.conf.d/base << EOF
+cat > /etc/resolv.conf << EOF
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 search nodes.dreamcompute.net
