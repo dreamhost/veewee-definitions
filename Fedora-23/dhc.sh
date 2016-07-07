@@ -1,5 +1,6 @@
 /usr/sbin/usermod -a -G wheel installer
 /bin/passwd -d root
+echo > /etc/securetty
 #/bin/yum -y update
 /bin/dnf -y install cloud-utils-growpart cloud-init
 /bin/dnf -y erase firewalld NetworkManager
